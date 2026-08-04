@@ -20,11 +20,11 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // ---- Read input (NOT timed) ----
+    
     int V, E;
     infile >> V >> E;
 
-    vector<vector<pair<int,double>>> adjList(V);
+    vector<vector<pair<int,double>>> adjList(V); // Adjacency list: for each vertex u, a list of (neighbor, weight) pairs.
 
     for (int i = 0; i < V; i++) {
         int u, degree;
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
             double weight;
             infile >> neighbor >> weight;
             if (weight <= 0) {
-                cerr << "Error: SSSP requires all edge weights to be positive." << endl;
+                cerr << "Error: SSSP requires all edge weights to be positive." << endl;// SSSP requires strictly positive edge weights
                 return 1;
             }
             adjList[u].push_back({neighbor, weight});
@@ -56,18 +56,16 @@ int main(int argc, char* argv[]) {
 
     infile.close();
 
-    // ---- CSR conversion (NOT timed per spec) ----
-    CSRGraph graph = CSRconversion(adjList, V, E);
+    
+    CSRGraph graph = CSRconversion(adjList, V, E);//convert adjacency list into CSR format (conversion time is not added to the timer)
 
-    // ---- Algorithm timing starts here ----
+    //algo time 
     auto startTime = chrono::high_resolution_clock::now();
     vector<double> dist = dijkstra(graph, source);
     auto endTime = chrono::high_resolution_clock::now();
-    // ---- Algorithm timing ends here ----
-
     double elapsedMs = chrono::duration<double, milli>(endTime - startTime).count();
 
-    // ---- Output (NOT timed) ----
+    
     const double INF = numeric_limits<double>::infinity();
     cout << "Algorithm: SSSP" << endl;
     cout << "Source: " << source << endl;
