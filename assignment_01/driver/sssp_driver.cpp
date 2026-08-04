@@ -24,15 +24,28 @@ int main(int argc, char* argv[]) {
     int V, E;
     infile >> V >> E;
 
+
+
     vector<vector<pair<int,double>>> adjList(V); // Adjacency list: for each vertex u, a list of (neighbor, weight) pairs.
 
     for (int i = 0; i < V; i++) {
         int u, degree;
         infile >> u >> degree;
+ 
+        if (!infile) {
+            cerr << "Error: malformed input file — could not read vertex " << i << "'s adjacency data." << endl;
+            return 1;
+        }
+
         for (int j = 0; j < degree; j++) {
             int neighbor;
             double weight;
             infile >> neighbor >> weight;
+
+            if (!infile) {
+            cerr << "Error: malformed input file — could not read vertex " << i << "'s adjacency data." << endl;
+            return 1;
+            }
             if (weight <= 0) {
                 cerr << "Error: SSSP requires all edge weights to be positive." << endl;// SSSP requires strictly positive edge weights
                 return 1;
@@ -44,6 +57,11 @@ int main(int argc, char* argv[]) {
     string sourceLabel;
     int source;
     infile >> sourceLabel >> source;
+
+    if (!infile) {
+        cerr << "Error: malformed input file — could not read SOURCE line." << endl;
+        return 1;
+    }
 
     if (sourceLabel != "SOURCE") {
         cerr << "Error: expected SOURCE line in input file." << endl;
