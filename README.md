@@ -14,7 +14,7 @@ This repository contains the submission for **CS509 Assignment 1 (buddy) **. Th
 
 **Name 2 :** Kanak
 
-**Entry Number:** AI1009
+**Entry Number:** AIM1009
 
 **Git Repository:** https://github.com/2026csm1038/CS509_CSM1038_AIM1009
 
