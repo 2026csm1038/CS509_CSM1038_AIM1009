@@ -336,8 +336,62 @@ Execution times were measured with the algorithm execution only; input reading, 
 
 ## Triangle Counting
 
-
-
+| Algorithm | Test File | Time (ms) |
+| -- | -- | -- |
+| Triangle Counting | tc_100000.txt | 27.7745 |
+| Triangle Counting | tc_10000.txt | 1.72363 |
+| Triangle Counting | tc_100.txt | 0.024724 | 
+| Triangle Counting | tc_10.txt | 0.003447 |
+| Triangle Counting | tc_50000.txt | 8.65198 |
+| Triangle Counting | tc_bipartite_3x3.txt | 0.001063 |
+| Triangle Counting | tc_bipartite_4x4.txt | 0.000834 | 
+| Triangle Counting | tc_clustered_1000.txt | 0.557919 |
+| Triangle Counting | tc_clustered_20.txt | 0.004775 |
+| Triangle Counting | tc_complete_4.txt | 0.001682 |
+| Triangle Counting | tc_complete_5.txt | 0.003186 |
+| Triangle Counting | tc_complete_6.txt | 0.004943 |
+| Triangle Counting | tc_complete_8.txt | 0.009497 |
+| Triangle Counting | tc_cycle_1000.txt | 0.039984 |
+| Triangle Counting | tc_cycle_10.txt | 0.000635 |
+| Triangle Counting | tc_cycle_3.txt | 0.002037 |
+| Triangle Counting | tc_cycle_5.txt | 0.000442 |
+| Triangle Counting | tc_disjoint_triangles_4.txt | 0.001147 |
+| Triangle Counting | tc_duplicate_edges.txt | 0.000524 |
+| Triangle Counting | tc_empty_1.txt | 0.000206 |
+| Triangle Counting | tc_empty_5.txt | 0.000216 |
+| Triangle Counting | tc_grid_3x3.txt | 0.001234 | 
+| Triangle Counting | tc_grid_4x4.txt | 0.001395 |
+| Triangle Counting | tc_path_1000.txt | 0.005073 |
+| Triangle Counting | tc_path_10.txt | 0.000561 |
+| Triangle Counting | tc_path_5.txt | 0.000381 |
+| Triangle Counting | tc_random_medium_1000.txt | 2.66235 |
+| Triangle Counting | tc_random_small_01.txt | 0.000933 |
+| Triangle Counting | tc_random_small_02.txt | 0.001643 |
+| Triangle Counting | tc_random_small_03.txt | 0.000772 |
+| Triangle Counting | tc_random_small_04.txt | 0.000512 |
+| Triangle Counting | tc_random_small_05.txt | 0.000572 |
+| Triangle Counting | tc_random_small_06.txt | 0.001668 |
+| Triangle Counting | tc_random_small_07.txt | 0.001928 |
+| Triangle Counting | tc_random_small_08.txt | 0.003203 |
+| Triangle Counting | tc_random_small_09.txt | 0.003853 |
+| Triangle Counting | tc_random_small_10.txt | 0.000928 |
+| Triangle Counting | tc_random_small_11.txt | 0.004344 |
+| Triangle Counting | tc_random_small_12.txt | 0.000778 |
+| Triangle Counting | tc_random_small_13.txt | 0.0166 |
+| Triangle Counting | tc_random_sparse_1000.txt | 0.318723 |
+| Triangle Counting | tc_self_loop.txt | 0.000379 |
+| Triangle Counting | tc_single_edge.txt | 0.000325 |
+| Triangle Counting | tc_star_1000.txt | 13.7966 |
+| Triangle Counting | tc_star_10.txt | 0.001636 |
+| Triangle Counting | tc_star_5.txt | 0.000357 |
+| Triangle Counting | tc_tree_1000.txt | 0.074711 |
+| Triangle Counting | tc_tree_10.txt | 0.000571 |
+| Triangle Counting | tc_triangle.txt | 0.001017 |
+| Triangle Counting | tc_wheel_10.txt | 0.002628 |
+| Triangle Counting | tc_wheel_20.txt | 0.0043 |
+| Triangle Counting | tc_windmill_3.txt | 0.001338 |
+| Triangle Counting | tc_windmill_5.txt | 0.003448 |
+ 
 # Complexity Analysis
 
 | Algorithm              | Time Complexity                                     | Space Complexity |
