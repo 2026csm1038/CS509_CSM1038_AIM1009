@@ -90,61 +90,17 @@ Compiled driver binaries are generated locally and are not stored in the Git rep
 
 ---
 
-# Common Wrapper
+### Common Wrapper
 
-`common_wrapper/wrapper.cpp` provides a menu-driven interface for executing all buddy-assignment graph algorithms.
+The common wrapper provides a menu-driven way to launch assignment drivers.
 
-The wrapper currently provides:
+The repository provides a Makefile to compile the common wrapper and the assignment drivers.
 
 ```text
-========== Common Wrapper ==========
-1. BFS
-2. DFS
-3. SSSP
-4. Betweenness Centrality
-5. Connected Components
-6. Triangle Counting
-7. Exit
-====================================
-```
-
-Compile the wrapper from the repository root:
-
-```bash
-g++ -O2 -std=c++17 common_wrapper/wrapper.cpp -o wrapper
-```
-
-Run:
-
-```bash
+make clean 
+make 
 ./wrapper
 ```
-
-After selecting an algorithm, the wrapper asks:
-
-```text
-Enter input file:
-```
-
-Enter the path of the corresponding test file.
-
-For example:
-
-```text
-Choice: 1
-Enter input file: assignment_01/tests/bfs_100.txt
-```
-
-or:
-
-```text
-Choice: 6
-Enter input file: assignment_02/tests/triangle_counting/tc_10.txt
-```
-
-The wrapper executes the corresponding locally compiled driver.
-
----
 
 # Assignments
 
@@ -197,11 +153,4 @@ For all graph algorithms:
 
 This follows the CS509 timing requirements.
 
----
-
-# Git Repository
-
-The complete buddy-assignment repository is available at:
-
-https://github.com/2026csm1038/CS509_CSM1038_AIM1009
 

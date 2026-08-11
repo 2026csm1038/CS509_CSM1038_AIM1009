@@ -62,7 +62,7 @@ assignment_02/driver/bc_driver.cpp \
 ### Execution
 
 ```bash
-./betweenness_centrality_driver assignment_02/tests/betweenness_centrality/bc_100.txt
+./bc_driver assignment_02/tests/betweenness_centrality/bc_100.txt
 ```
 
 ---
@@ -78,6 +78,7 @@ The implementation traverses the graph and assigns each vertex to its correspond
 ```bash
 g++ -O2 -std=c++17 \
 -Iassignment_01/src \
+assignment_01/src/bfs.cpp \
 assignment_01/src/csr.cpp \
 assignment_02/src/connected_components.cpp \
 assignment_02/driver/connected_components_driver.cpp \
@@ -119,7 +120,7 @@ assignment_02/driver/triangle_counting_driver.cpp \
 ### Execution
 
 ```bash
-./triangle_counting_driver assignment_02/tests/triangle_counting/tc_*.txt
+./triangle_counting_driver assignment_02/tests/triangle_counting/tc_100.txt
 ```
 
 ---
