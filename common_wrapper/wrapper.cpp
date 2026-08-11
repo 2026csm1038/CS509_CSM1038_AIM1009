@@ -79,7 +79,7 @@ int main() {
                 break;
 
             case 4:
-                status = executeDriver("./betweenness_centrality_driver",
+                status = executeDriver("./bc_driver",
                                        inputFile);
                 break;
 
