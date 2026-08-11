@@ -2,296 +2,206 @@
 
 ## Repository Overview
 
-This repository contains the submission for **CS509 Assignment 1 (buddy) **. The assignment implements graph algorithms using the Compressed Sparse Row (CSR) representation along with a common wrapper to execute all implementations from a single interface.
+This repository contains the **Buddy assignments for CS509 (First-Year M.Tech CSE, 2026)**.
+
+The repository contains graph algorithms implemented using C++ and the Compressed Sparse Row (CSR) representation. Each assignment has its own source files, drivers, test cases and documentation. A common wrapper provides a single menu-driven interface for running the implemented graph algorithms.
 
 ---
 
-# Student Details
+## Student Details
 
-**Name 1 :** Vanshika Aggarwal
-
+**Name 1:** Vanshika Aggarwal
 **Entry Number:** CSM1038
 
-**Name 2 :** Kanak
+**Name 2:** Kanak
+**Entry Number:** AIM1009
 
-**Entry Number:** AIM1009
-
-**Git Repository:** https://github.com/2026csm1038/CS509_CSM1038_AIM1009
+**Git Repository:**
+https://github.com/2026csm1038/CS509_CSM1038_AIM1009
 
 ---
 
-# Language and Environment
+## Language and Environment
 
 * **Language:** C++
 * **Compiler:** g++ (GCC)
+* **Compiler Version:** Ubuntu 15.2.0-16ubuntu1
 * **Compilation Flags:** `-O2 -std=c++17`
-* **Operating System:** Ubuntu (VirtualBox)
+* **Operating System:** Ubuntu running in VirtualBox
 
 ---
 
-# Directory Structure
+## Repository Structure
 
 ```text
 CS509_CSM1038_AIM1009/
 │
 ├── README.md
+│
 ├── common_wrapper/
 │   └── wrapper.cpp
 │
-└── assignment_01/
+├── assignment_01/
+│   ├── README.md
+│   ├── src/
+│   │   ├── bfs.cpp
+│   │   ├── bfs.h
+│   │   ├── dfs.cpp
+│   │   ├── dfs.h
+│   │   ├── sssp.cpp
+│   │   ├── sssp.h
+│   │   ├── csr.cpp
+│   │   └── csr.h
+│   │
+│   ├── driver/
+│   │   ├── bfs_driver.cpp
+│   │   ├── dfs_driver.cpp
+│   │   └── sssp_driver.cpp
+│   │
+│   └── tests/
+│       ├── generate_tests.py
+│       ├── bfs_*.txt
+│       ├── dfs_*.txt
+│       └── sssp_*.txt
+│
+└── assignment_02/
+    ├── README.md
     ├── src/
-    │   ├── bfs.cpp
-    │   ├── bfs.h
-    │   ├── dfs.cpp
-    │   ├── dfs.h
-    │   ├── sssp.cpp
-    │   ├── sssp.h
-    │   ├── csr.cpp
-    │   └── csr.h
+    │   ├── betweenness_centrality.cpp
+    │   ├── betweenness_centrality.h
+    │   ├── connected_components.cpp
+    │   ├── connected_components.h
+    │   ├── triangle_counting.cpp
+    │   └── triangle_counting.h
     │
     ├── driver/
-    │   ├── bfs_driver.cpp
-    │   ├── dfs_driver.cpp
-    │   └── sssp_driver.cpp
+    │   ├── betweenness_centrality_driver.cpp
+    │   ├── connected_components_driver.cpp
+    │   └── triangle_counting_driver.cpp
     │
     └── tests/
         ├── generate_tests.py
-        ├── bfs_*.txt
-        ├── dfs_*.txt
-        └── sssp_*.txt
+        ├── betweenness_centrality/
+        ├── connected_components/
+        └── triangle_counting/
 ```
 
----
-
-# Assignment 01
-
-## Objective
-
-Implement the following graph algorithms using the CSR graph representation.
-
-* Breadth First Search (BFS)
-* Depth First Search (DFS)
-* Single Source Shortest Path (Dijkstra)
-* CSR Graph Construction
+Compiled driver binaries are generated locally and are not stored in the Git repository.
 
 ---
 
-# Algorithms Implemented
+# Common Wrapper
 
-### Breadth First Search (BFS)
+`common_wrapper/wrapper.cpp` provides a menu-driven interface for executing all buddy-assignment graph algorithms.
 
-* Queue-based graph traversal.
-* Computes traversal order and shortest distance (in number of edges) from the source vertex.
-
-### Depth First Search (DFS)
-
-* Stack-based iterative traversal.
-* Visits every reachable vertex exactly once.
-
-### Single Source Shortest Path (SSSP)
-
-* Implemented using Dijkstra's Algorithm.
-* Uses a priority queue (min-heap).
-* Computes shortest weighted distance from the source vertex.
-
-### CSR Graph
-
-Converts an adjacency list into the CSR representation using:
-
-* `row_ptr`
-* `col_ind`
-* `values`
-
----
-
-# Input Format
-
-## BFS / DFS
+The wrapper currently provides:
 
 ```text
-V E
-vertex number_of_neighbors neighbor1 neighbor2 ...
-...
-SOURCE source_vertex
+========== Common Wrapper ==========
+1. BFS
+2. DFS
+3. SSSP
+4. Betweenness Centrality
+5. Connected Components
+6. Triangle Counting
+7. Exit
+====================================
 ```
 
-## SSSP
-
-```text
-V E
-vertex number_of_neighbors neighbor1 weight1 neighbor2 weight2 ...
-...
-SOURCE source_vertex
-```
-
----
-
-# Test Case Generation
-
-The repository contains a unified Python script:
-
-```text
-generate_tests.py
-```
-
-It generates:
-
-* Standard graphs (10, 100, 10000, 50000 and 100000 vertices)
-* Single vertex graph
-* Disconnected graph
-* Linear chain
-* Dense graph
-* Cycle graph
-* Star graph
-* Equal-weight graph (SSSP)
-
----
-
-# Compilation
-
-### BFS
-
-```bash
-g++ -O2 -std=c++17 assignment_01/driver/bfs_driver.cpp assignment_01/src/bfs.cpp assignment_01/src/csr.cpp -o bfs_driver
-```
-
-### DFS
-
-```bash
-g++ -O2 -std=c++17 assignment_01/driver/dfs_driver.cpp assignment_01/src/dfs.cpp assignment_01/src/csr.cpp -o dfs_driver
-```
-
-### SSSP
-
-```bash
-g++ -O2 -std=c++17 assignment_01/driver/sssp_driver.cpp assignment_01/src/sssp.cpp assignment_01/src/csr.cpp -o sssp_driver
-```
-
-### Common Wrapper
+Compile the wrapper from the repository root:
 
 ```bash
 g++ -O2 -std=c++17 common_wrapper/wrapper.cpp -o wrapper
 ```
 
----
-
-# Execution
-
-### Run Individual Drivers
-
-```bash
-./bfs_driver assignment_01/tests/bfs_100.txt
-
-./dfs_driver assignment_01/tests/dfs_100.txt
-
-./sssp_driver assignment_01/tests/sssp_100.txt
-```
-
-### Run Using Common Wrapper
+Run:
 
 ```bash
 ./wrapper
 ```
 
-The wrapper displays the following menu:
-
-```text
-1. BFS
-2. DFS
-3. SSSP
-4. Exit
-```
-
-Choose the required algorithm by entering its corresponding number.
-
-For example:
-
-* Enter **1** for BFS
-* Enter **2** for DFS
-* Enter **3** for SSSP
-
-The wrapper then prompts:
+After selecting an algorithm, the wrapper asks:
 
 ```text
 Enter input file:
 ```
 
-Provide the complete path to the required test file.
+Enter the path of the corresponding test file.
 
-Examples:
-
-For BFS
+For example:
 
 ```text
-assignment_01/tests/bfs_100.txt
+Choice: 1
+Enter input file: assignment_01/tests/bfs_100.txt
 ```
 
-For DFS
+or:
 
 ```text
-assignment_01/tests/dfs_100.txt
+Choice: 6
+Enter input file: assignment_02/tests/triangle_counting/tc_10.txt
 ```
 
-For SSSP
-
-```text
-assignment_01/tests/sssp_100.txt
-```
-
-The selected driver executes and prints the traversal/shortest path along with the execution time.
+The wrapper executes the corresponding locally compiled driver.
 
 ---
 
-# Execution Results
+# Assignments
 
-| Algorithm | Test File             | Time (ms) |
-| --------- | --------------------- | --------: |
-| BFS       | bfs_100000.txt        |   14.1892 |
-| BFS       | bfs_10000.txt         |   1.03655 |
-| BFS       | bfs_100.txt           |  0.010579 |
-| BFS       | bfs_10.txt            |       N/A |
-| BFS       | bfs_50000.txt         |    9.2073 |
-| BFS       | bfs_cycle.txt         |  0.004654 |
-| BFS       | bfs_dense.txt         |  0.001913 |
-| BFS       | bfs_disconnected.txt  |  0.002577 |
-| BFS       | bfs_linear_chain.txt  |  0.003051 |
-| BFS       | bfs_single_vertex.txt |  0.000827 |
-| BFS       | bfs_star.txt          |  0.002716 |
-| DFS       | dfs_100000.txt        |   15.6132 |
-| DFS       | dfs_10000.txt         |  0.917571 |
-| DFS       | dfs_100.txt           |  0.009343 |
-| DFS       | dfs_10.txt            |  0.001407 |
-| DFS       | dfs_50000.txt         |    5.9000 |
-| DFS       | dfs_cycle.txt         |  0.002983 |
-| DFS       | dfs_dense.txt         |  0.002678 |
-| DFS       | dfs_disconnected.txt  |  0.002531 |
-| DFS       | dfs_linear_chain.txt  |  0.001718 |
-| DFS       | dfs_single_vertex.txt |  0.000847 |
-| DFS       | dfs_star.txt          |  0.001428 |
-| SSSP      | sssp_100000.txt       |   82.6064 |
-| SSSP      | sssp_10000.txt        |   5.00568 |
-| SSSP      | sssp_100.txt          |  0.021723 |
-| SSSP      | sssp_10.txt           |  0.002959 |
-| SSSP      | sssp_50000.txt        |   33.2991 |
-| SSSP      | sssp_cycle.txt        |  0.002131 |
+## Assignment 01 — Buddy
+
+Assignment 01 implements:
+
+* Breadth First Search (BFS)
+* Depth First Search (DFS)
+* Single Source Shortest Path using Dijkstra's algorithm
+* CSR graph construction
+
+Detailed implementation, compilation, execution and test results are documented in:
+
+```text
+assignment_01/README.md
+```
 
 ---
 
-# Complexity Analysis
+## Assignment 02 — Buddy
 
-| Algorithm        | Time Complexity  | Space Complexity |
-| ---------------- | ---------------- | ---------------- |
-| BFS              | O(V + E)         | O(V)             |
-| DFS              | O(V + E)         | O(V)             |
-| Dijkstra (SSSP)  | O((V + E) log V) | O(V)             |
-| CSR Construction | O(V + E)         | O(V + E)         |
+Assignment 02 implements:
+
+* Triangle Counting
+* Betweenness Centrality
+* Connected Components
+
+The three algorithms operate on undirected graphs represented using adjacency lists and converted to CSR before algorithm execution.
+
+Detailed implementation, compilation, execution and test results are documented in:
+
+```text
+assignment_02/README.md
+```
 
 ---
 
-# References
+# Runtime Measurement
 
-1. https://en.wikipedia.org/wiki/Breadth-first_search
-2. https://en.wikipedia.org/wiki/Depth-first_search
-3. https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
-4. https://en.wikipedia.org/wiki/Sparse_matrix#Compressed_sparse_row_(CSR,_CRS_or_Yale_format)
+For all graph algorithms:
+
+* Input reading is not included in the measured time.
+* Input parsing is not included.
+* CSR conversion is performed before timing.
+* Output printing is not included.
+* The timer starts immediately before the algorithm call.
+* The timer stops immediately after the algorithm finishes.
+* Execution time is reported in milliseconds.
+
+This follows the CS509 timing requirements.
+
+---
+
+# Git Repository
+
+The complete buddy-assignment repository is available at:
+
+https://github.com/2026csm1038/CS509_CSM1038_AIM1009
 
