@@ -1,3 +1,4 @@
+
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -13,11 +14,12 @@ bool exists(const string &path) {
 int executeDriver(const string &driver, const string &inputFile) {
     if (!exists(driver)) {
         cout << "Driver not found: " << driver << endl;
+        cout << "Please compile the required driver first." << endl;
         return 1;
     }
 
     if (!exists(inputFile)) {
-        cout << "Input file not found." << endl;
+        cout << "Input file not found: " << inputFile << endl;
         return 1;
     }
 
@@ -31,17 +33,29 @@ int main() {
         cout << "1. BFS\n";
         cout << "2. DFS\n";
         cout << "3. SSSP\n";
-        cout << "4. Exit\n";
+        cout << "4. Betweenness Centrality\n";
+        cout << "5. Connected Components\n";
+        cout << "6. Triangle Counting\n";
+        cout << "7. Exit\n";
+        cout << "====================================\n";
         cout << "Choice: ";
 
         int choice;
-        cin >> choice;
 
-        if (choice == 4)
+        if (!(cin >> choice)) {
+            cout << "Invalid input. Please enter a number.\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+            continue;
+        }
+
+        if (choice == 7) {
+            cout << "Exiting wrapper.\n";
             break;
+        }
 
-        if (choice < 1 || choice > 4) {
-            cout << "Invalid choice.\n";
+        if (choice < 1 || choice > 7) {
+            cout << "Invalid choice. Please select 1-7.\n";
             continue;
         }
 
@@ -51,16 +65,41 @@ int main() {
 
         int status = 0;
 
-        if (choice == 1)
-            status = executeDriver("./bfs_driver", inputFile);
-        else if (choice == 2)
-            status = executeDriver("./dfs_driver", inputFile);
-        else
-            status = executeDriver("./sssp_driver", inputFile);
+        switch (choice) {
+            case 1:
+                status = executeDriver("./bfs_driver", inputFile);
+                break;
 
-        if (status != 0)
+            case 2:
+                status = executeDriver("./dfs_driver", inputFile);
+                break;
+
+            case 3:
+                status = executeDriver("./sssp_driver", inputFile);
+                break;
+
+            case 4:
+                status = executeDriver("./betweenness_centrality_driver",
+                                       inputFile);
+                break;
+
+            case 5:
+                status = executeDriver("./connected_components_driver",
+                                       inputFile);
+                break;
+
+            case 6:
+                status = executeDriver("./triangle_counting_driver",
+                                       inputFile);
+                break;
+        }
+
+        if (status != 0) {
             cout << "Execution failed.\n";
+        }
     }
 
     return 0;
 }
+
+
