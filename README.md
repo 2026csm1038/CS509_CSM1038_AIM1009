@@ -64,26 +64,41 @@ CS509_CSM1038_AIM1009/
 │       ├── dfs_*.txt
 │       └── sssp_*.txt
 │
-└── assignment_02/
+├── assignment_02/
+│   ├── README.md
+│   ├── src/
+│   │   ├── betweenness_centrality.cpp
+│   │   ├── betweenness_centrality.h
+│   │   ├── connected_components.cpp
+│   │   ├── connected_components.h
+│   │   ├── triangle_counting.cpp
+│   │   └── triangle_counting.h
+│   │
+│   ├── driver/
+│   │   ├── bc_driver.cpp
+│   │   ├── connected_components_driver.cpp
+│   │   └── triangle_counting_driver.cpp
+│   │
+│   └── tests/
+│       ├── betweenness_centrality/
+│       ├── connected_components/
+│       └── triangle_counting/
+│
+└── assignment_03/
     ├── README.md
     ├── src/
-    │   ├── betweenness_centrality.cpp
-    │   ├── betweenness_centrality.h
-    │   ├── connected_components.cpp
-    │   ├── connected_components.h
-    │   ├── triangle_counting.cpp
-    │   └── triangle_counting.h
+    │   ├── gradient_descent.cpp
+    │   ├── gradient_descent.h
+    │   ├── maxflow_mincut.cpp
+    │   └── maxflow_mincut.h
     │
     ├── driver/
-    │   ├── betweenness_centrality_driver.cpp
-    │   ├── connected_components_driver.cpp
-    │   └── triangle_counting_driver.cpp
+    │   ├── gd_driver.cpp
+    │   └── maxmin_driver.cpp
     │
     └── tests/
-        ├── generate_tests.py
-        ├── betweenness_centrality/
-        ├── connected_components/
-        └── triangle_counting/
+        ├── gradient_descent/
+        └── maxflow_mincut/
 ```
 
 Compiled driver binaries are generated locally and are not stored in the Git repository.
@@ -137,6 +152,21 @@ Detailed implementation, compilation, execution and test results are documented 
 assignment_02/README.md
 ```
 
+---
+## Assignment 03 — Buddy
+
+Assignment 03 implements:
+
+* Gradient Descent for polynomial functions
+* Maxflow-Mincut using Dinic's algorithm
+* 
+Assignment 03 includes Gradient Descent for polynomial optimization and Maxflow-Mincut using Dinic’s algorithm on CSR-based directed graphs.
+
+Detailed implementation, compilation, execution and test results are documented in:
+
+```text
+assignment_03/README.md
+```
 ---
 
 # Runtime Measurement
