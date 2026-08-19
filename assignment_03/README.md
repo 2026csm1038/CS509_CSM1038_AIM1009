@@ -152,7 +152,17 @@ assignment_03/driver/maxmin_driver.cpp \
 **Result:** All Maxflow-Mincut test cases passed.
 
 ---
+## Gradient Descent Results
 
+| File | Degree | Final x | Final f(x) | Iterations | Converged | Execution time (ms) |
+| --- | ---: | ---: | ---: | ---: | --- | ---: |
+| `gd_01.txt` | 2 | 2.9999995063 | 0.0000000000 | 70 | true | 0.0008740000 |
+| `gd_02.txt` | 4 | 0.0000002379 | 0.0000000000 | 180 | true | 0.0033080000 |
+| `gd_03.txt` | 6 | 0.0000004835 | 0.0000000000 | 349 | true | 0.0069130000 |
+| `gd_04.txt` | 8 | 0.0000000050 | 0.0000000000 | 948 | true | 0.0221570000 |
+| `gd_05.txt` | 10 | 0.0000000000 | 0.0000000000 | 2364 | true | 0.0643570000 |
+
+---
 # 4. Test Coverage
 
 The Maxflow-Mincut test suite covers a variety of graph structures and input sizes, including:
