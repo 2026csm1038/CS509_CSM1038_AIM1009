@@ -2,19 +2,27 @@ CXX = g++
 CXXFLAGS = -O2 -std=c++17
 
 COMMON = assignment_01/src/csr.cpp
+
 A1_SRC = assignment_01/src
 A1_DRIVER = assignment_01/driver
 
 A2_SRC = assignment_02/src
 A2_DRIVER = assignment_02/driver
 
-.PHONY: all assignment1 assignment2 wrapper clean
+A3_SRC = assignment_03/src
+A3_DRIVER = assignment_03/driver
 
-all: assignment1 assignment2 wrapper
+.PHONY: all assignment1 assignment2 assignment3 wrapper clean
+
+all: assignment1 assignment2 assignment3 wrapper
+
+
+# ============================================================
+# Assignment 1
+# BFS, DFS, SSSP
+# ============================================================
 
 assignment1: bfs_driver dfs_driver sssp_driver
-
-assignment2: bc_driver connected_components_driver triangle_counting_driver
 
 bfs_driver:
 	$(CXX) $(CXXFLAGS) \
@@ -36,6 +44,15 @@ sssp_driver:
 		$(A1_SRC)/sssp.cpp \
 		$(COMMON) \
 		-o sssp_driver
+
+
+# ============================================================
+# Assignment 2
+# Betweenness Centrality, Connected Components,
+# Triangle Counting
+# ============================================================
+
+assignment2: bc_driver connected_components_driver triangle_counting_driver
 
 bc_driver:
 	$(CXX) $(CXXFLAGS) \
@@ -62,10 +79,42 @@ triangle_counting_driver:
 		-I$(A2_SRC) \
 		-o triangle_counting_driver
 
+
+# ============================================================
+# Assignment 3
+# Gradient Descent, Maxflow-Mincut
+# ============================================================
+
+assignment3: gradient_descent_driver maxmin_driver
+
+gradient_descent_driver:
+	$(CXX) $(CXXFLAGS) \
+		$(A3_DRIVER)/gd_driver.cpp \
+		$(A3_SRC)/gradient_descent.cpp \
+		-o gradient_descent_driver
+
+maxmin_driver:
+	$(CXX) $(CXXFLAGS) \
+		$(A3_DRIVER)/maxmin_driver.cpp \
+		$(A3_SRC)/maxflow_mincut.cpp \
+		$(COMMON) \
+		-I$(A3_SRC) \
+		-o maxmin_driver
+
+
+# ============================================================
+# Common Wrapper
+# ============================================================
+
 wrapper:
 	$(CXX) $(CXXFLAGS) \
 		common_wrapper/wrapper.cpp \
 		-o wrapper
+
+
+# ============================================================
+# Clean
+# ============================================================
 
 clean:
 	rm -f bfs_driver
@@ -74,4 +123,6 @@ clean:
 	rm -f bc_driver
 	rm -f connected_components_driver
 	rm -f triangle_counting_driver
+	rm -f gradient_descent_driver
+	rm -f maxmin_driver
 	rm -f wrapper

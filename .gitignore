@@ -6,9 +6,9 @@ bc_driver
 connected_components_driver
 tc_driver
 triangle_counting_driver
-gd_driver
+gradient_descent_driver
 maxmin_driver
-
+gd_driver
 <<<<<<< HEAD
 <<<<<<< HEAD
 
