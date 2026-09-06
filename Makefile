@@ -12,9 +12,12 @@ A2_DRIVER = assignment_02/driver
 A3_SRC = assignment_03/src
 A3_DRIVER = assignment_03/driver
 
-.PHONY: all assignment1 assignment2 assignment3 wrapper clean
+A4_SRC = assignment_04/src
+A4_DRIVER = assignment_04/driver
 
-all: assignment1 assignment2 assignment3 wrapper
+.PHONY: all assignment1 assignment2 assignment3 assignment4 wrapper clean
+
+all: assignment1 assignment2 assignment3 assignment4 wrapper
 
 
 # ============================================================
@@ -103,6 +106,26 @@ maxmin_driver:
 
 
 # ============================================================
+# Assignment 4
+# FastMap, K-Means Clustering
+# ============================================================
+
+assignment4: fastmap_driver kmeans_driver
+
+fastmap_driver:
+	$(CXX) $(CXXFLAGS) \
+		$(A4_DRIVER)/fastmap_driver.cpp \
+		$(A4_SRC)/fastmap.cpp \
+		-o fastmap_driver
+
+kmeans_driver:
+	$(CXX) $(CXXFLAGS) \
+		$(A4_DRIVER)/kmeans_driver.cpp \
+		$(A4_SRC)/kmeans.cpp \
+		-o kmeans_driver
+
+
+# ============================================================
 # Common Wrapper
 # ============================================================
 
@@ -125,4 +148,6 @@ clean:
 	rm -f triangle_counting_driver
 	rm -f gradient_descent_driver
 	rm -f maxmin_driver
+	rm -f fastmap_driver
+	rm -f kmeans_driver
 	rm -f wrapper

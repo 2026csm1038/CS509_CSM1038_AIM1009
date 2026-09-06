@@ -46,7 +46,9 @@ int main()
         cout << "6. Triangle Counting\n";
         cout << "7. Gradient Descent\n";
         cout << "8. Maxflow-Mincut\n";
-        cout << "9. Exit\n";
+        cout << "9. FastMap\n";
+        cout << "10. K-Means Clustering\n";
+        cout << "11. Exit\n";
         cout << "====================================\n";
         cout << "Choice: ";
 
@@ -60,15 +62,15 @@ int main()
             continue;
         }
 
-        if (choice == 9)
+        if (choice == 11)
         {
             cout << "Exiting wrapper.\n";
             break;
         }
 
-        if (choice < 1 || choice > 9)
+        if (choice < 1 || choice > 11)
         {
-            cout << "Invalid choice. Please select 1-9.\n";
+            cout << "Invalid choice. Please select 1-11.\n";
             continue;
         }
 
@@ -133,6 +135,20 @@ int main()
             case 8:
                 status = executeDriver(
                     "./maxmin_driver",
+                    inputFile
+                );
+                break;
+
+            case 9:
+                status = executeDriver(
+                    "./fastmap_driver",
+                    inputFile
+                );
+                break;
+
+            case 10:
+                status = executeDriver(
+                    "./kmeans_driver",
                     inputFile
                 );
                 break;
