@@ -84,21 +84,38 @@ CS509_CSM1038_AIM1009/
 │       ├── connected_components/
 │       └── triangle_counting/
 │
-└── assignment_03/
+├── assignment_03/
+│   ├── README.md
+│   ├── src/
+│   │   ├── gradient_descent.cpp
+│   │   ├── gradient_descent.h
+│   │   ├── maxflow_mincut.cpp
+│   │   └── maxflow_mincut.h
+│   │
+│   ├── driver/
+│   │   ├── gd_driver.cpp
+│   │   └── maxmin_driver.cpp
+│   │
+│   └── tests/
+│       ├── gradient_descent/
+│       └── maxflow_mincut/
+│
+└── assignment_04/
     ├── README.md
     ├── src/
-    │   ├── gradient_descent.cpp
-    │   ├── gradient_descent.h
-    │   ├── maxflow_mincut.cpp
-    │   └── maxflow_mincut.h
+    │   ├── fastmap.cpp
+    │   ├── fastmap.h
+    │   ├── kmeans.cpp
+    │   └── kmeans.h
     │
     ├── driver/
-    │   ├── gd_driver.cpp
-    │   └── maxmin_driver.cpp
+    │   ├── fastmap_driver.cpp
+    │   └── kmeans_driver.cpp
+    │
     │
     └── tests/
-        ├── gradient_descent/
-        └── maxflow_mincut/
+        ├── fastmap/
+        └── kmeans/
 ```
 
 Compiled driver binaries are generated locally and are not stored in the Git repository.
@@ -169,6 +186,22 @@ assignment_03/README.md
 ```
 ---
 
+## Assignment 04 — Buddy
+
+Assignment 04 implements:
+
+* FastMap for dimensionality reduction from a pairwise distance matrix
+* K-Means Clustering
+
+Unlike Assignments 01–03, these algorithms do not operate on graphs: FastMap reads a full pairwise distance matrix directly, and K-Means reads a list of points. Neither uses adjacency lists or CSR conversion.
+
+Detailed implementation, compilation, execution and test results are documented in:
+
+```text
+assignment_04/README.md
+```
+---
+
 # Runtime Measurement
 
 For all graph algorithms:
@@ -182,5 +215,12 @@ For all graph algorithms:
 * Execution time is reported in milliseconds.
 
 This follows the CS509 timing requirements.
+
+For FastMap and K-Means (Assignment 04), the same timing rules apply, except there is no CSR conversion step since these algorithms do not take a graph as input:
+
+* Input reading and parsing are not included in the measured time.
+* Output printing is not included.
+* The timer starts immediately before the algorithm call and stops immediately after it finishes.
+* Execution time is reported in milliseconds.
 
 
